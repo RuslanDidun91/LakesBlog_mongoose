@@ -1,0 +1,23 @@
+<%- include('../partials/header') %>
+
+<% lakes.forEach(function(lake) { %>
+    <table id="list">
+        <tbody>
+                <tr id="list">
+                    <td><img src="<%= lake.image %>" width="350" height="250"></td>
+                    <td><strong><%= lake.name %></strong></td>
+                    <td><%= lake.shortDescription %></td>
+                    <td><a href="/lakes/<%= lake._id %>" id="datails-link">Details</a></td>
+                    <td>
+                        <% if (user?._id.equals(lake.user)) { %>
+                        <form action="/lakes/<%= lake.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn">X</button>
+                        </form>
+                        <% } %>
+                    </td>
+                </tr>
+               
+        </tbody>
+    </table>
+    <% }); %>
+    <%- include('../partials/footer') %>

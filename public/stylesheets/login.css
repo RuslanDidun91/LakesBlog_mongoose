@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    font-family: Helvetica;
+    color: rgb(179, 176, 176);
+    font-family: 'Concert One', cursive;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 26px;
+    color: #E2D1F9;
+  }
+
+  body {
+    background-size: auto;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+  html {
+    background: url('/images/main1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    overflow: hidden;
+  }

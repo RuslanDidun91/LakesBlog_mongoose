@@ -1,0 +1,42 @@
+<%- include('../partials/header')%>
+<h2>Enter a New flight</h2>
+<div class="container">
+    <form action="/flights" method="POST">
+      <div class="row">
+        <div class="col-25">
+            <label>Name</label>
+        </div>
+        <div>
+            
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-25">
+                <label>AirPort</label>
+            </div>
+            <select class="col-75" name="airport">
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>FlightNo</label>
+            </div>
+            <div class="col-75">
+                <input type="number" name="flightNo" min="10" max="9999" placeholder="from 10 to 9999">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label>Departs</label>
+            </div>
+            <div class="col-75">
+                <input type="datetime-local" name="departs" value="<%= departsDate %>">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <button type="submit" class="btn">Add flight</button>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer')%>

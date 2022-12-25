@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+    <form id="edit-form" action="/lakes/<%= lake._id %>?_method=PUT" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" value="<%= lake.name %>">
+        <label>short Description</label>
+        <input type="text" name="shortDescription" value="<%= lake.shortDescription %>">
+        <label>Google maps link</label>
+        <input type="text" name="googleLink" value="<%= lake.googleLink %>">
+        <input type="submit" value="Update lake" class="update-btn">
+    </form>
+    <br>
+    <br>
+    <ul>hints:
+        <li>* <small>You can update name and description</small></li>
+        <li>* <small>Copy paste google maps link</small>
+        </li>
+    </ul>
+    <%- include('../partials/footer') %>

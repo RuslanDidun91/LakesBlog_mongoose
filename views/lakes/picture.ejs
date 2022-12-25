@@ -1,0 +1,30 @@
+<%- include('../partials/header') %>
+    <% lake.pictures.forEach(function(l) { %>
+        <table id="additional-pictiures">
+            <tbody>
+                <tr>
+                    <td><img src="<%= l.picture %>">
+                        <%= l.about %>
+                        <form  action="/lakes/<%= lake._id %>/activities/<%= l._id %>?_method=DELETE" method="POST">
+                            <button type="submit">x</button>
+                          </form>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+        <% }); %>
+            <form id="new-form" action="/lakes/<%= lake._id %>/pictures" method="POST">
+                <input type="text" name="picture" required="true" placeholder="imgur link">
+                <br> <br>
+                <input type="text" name="about" placeholder="description(optional)"><br><br>
+                <input type="submit" value="add picture" class="update-btn">
+            </form>
+            <br>
+            <br>
+            <ul>hints:
+                <li>* <small>upload additional image from imgur.com
+                        => copypaste direct link</small>
+                </li>
+            </ul>
+            <%- include('../partials/footer') %>

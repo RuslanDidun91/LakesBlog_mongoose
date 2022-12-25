@@ -1,0 +1,102 @@
+<%- include('../partials/header') %>
+  <span>
+    <span>
+      <span class="main-name">
+        <strong>
+          <%= lake.name %>
+        </strong>
+      </span>
+      <span>
+        <a href="/lakes" id="goback-link">go back</a>
+        <a href="/lakes/<%= lake._id %>" id="add-tofavourites">add to favourite</a>
+        <a href="<%= lake.googleLink %>" target="blank" id="google-maps">Google maps</a>
+        <% if (user?._id.equals(lake.user)) { %>
+        <a href="/lakes/<%= lake._id %>/edit" id="edit-link">edit</a>
+        <% } %>
+      </span>
+    </span>
+  </span>
+  <div class="main-image">
+    <img src="<%= lake.image %>" id="detail-image">
+  </div>
+  <!-- //adding pictutes link -->
+  <div class="additional-pictures">
+    <a href="/lakes/<%= lake._id %>/pictures">more pictures</a>
+  </div>
+  <div>
+    <h2>About <%= lake.name %>
+    </h2>
+    <span style="display:block; height: YOURHEIGHT;" class="lake-description">
+      <%- lake.longDescription.replaceAll('\n', '<br>') %>
+    </span>
+  </div>
+
+
+  <!-- add activity here -->
+
+  <h4>Amazing things to do here...</h4>
+  <section id="badge-container">
+    <% lake.activities.forEach(function(a) { %>
+      <article class="badge">
+        <%= a.name %>
+        <form  action="/lakes/<%= lake._id %>/activities/<%= a._id %>?_method=DELETE" method="POST">
+          <button type="submit" id="delete-activity">x</button>
+        </form>
+      </article>
+      <% }) %>
+  </section>
+  <form id="add-activity-form" action="/lakes/<%= lake._id %>/activities" method="POST">
+    <label for="">Name</label>
+    <input type="text" name="name">
+    <input type="submit" value="Add Activity" class="update-btn">
+  </form>
+
+
+
+  <!--  reviews/impressions  -->
+  <h2>Recent expirience</h2>
+  <% if (user) { %>
+    <form id="add-review-form" method="POST" action="/lakes/<%= lake._id %>/reviews">
+      <label>Comment:</label>
+      <textarea name="content"></textarea>
+      <label>Impressions:</label>
+      <select name="rating">
+        <option value="😭">😭</option>
+        <option value="😒">😒</option>
+        <option value="😊">😊</option>
+        <option value="😎">😎</option>
+        <option value="😍" selected>😍</option>
+      </select>
+      <input type="submit" value="Add Review" class="update-btn">
+    </form>
+    <% } %>
+
+      <% if (lake.reviews.length) { %>
+        <table>
+          <tbody>
+              <% lake.reviews.forEach(function(lake) { %>
+                  <tr>
+                    <td class="review-user"><img alt="avatar" src="<%= lake.userAvatar %>" referrerpolicy="no-referrer">
+                      <%= lake.userName %>
+                    </td>
+                    <td>
+                      <%= lake.content %>
+                    </td>
+                    <td>
+                      <%= lake.rating %>
+                    </td>
+                    <td>
+                      <% if (user?._id.equals(lake.user)) { %>
+                        <form action="/reviews/<%= lake._id %>?_method=DELETE" method="POST">
+                          <button type="submit">X</button>
+                        </form>
+                        <% } %>
+                    </td>
+                  </tr>
+                  <% }); %>
+          </tbody>
+        </table>
+        <% } else { %>
+          <h5>No Reviews Yet</h5>
+          <% } %>
+            <%- include('../partials/footer') %>

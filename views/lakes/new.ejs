@@ -1,0 +1,28 @@
+<%- include('../partials/header') %>
+<br><br>
+    <form id="new-form" action="/lakes" method="POST">
+        <!-- <label>Name:</label> -->
+        <input type="text" name="name" required="true" placeholder="Name of your lake"><br><br>
+        <!-- <label>Link from Imgur.com</label> -->
+        <input type="text" name="image" required="true" placeholder="Imgur.com link"><br><br>
+        <!-- <label>Google maps link</label> -->
+        <input type="text" name="googleLink" placeholder="googleMaps(optional)"><br><br>
+        <!-- <label>Short Description</label> -->
+        <input type="text" name="shortDescription" placeholder="Short Description"><br><br>
+        <!-- <label>Long Description</label> -->
+        <textarea name="longDescription" placeholder="long Description"></textarea><br><br>
+        
+        <input type="submit" value="Add lake" id="add-lake-btn">
+    </form>
+    <br>
+    <br>
+    <ul>hints:
+        <li>* <small>You can find certain lake
+            location on google maps
+            => click "share"
+            => copypaste link</small></li>
+        <li>* <small>upload your image on imgur.com 
+            => copypaste direct link</small>
+        </li>
+    </ul>
+    <%- include('../partials/footer') %>
