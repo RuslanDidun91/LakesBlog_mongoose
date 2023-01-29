@@ -5,7 +5,6 @@
 <div id="description" align="center">
 
 
-  
 ### Check this cool app out via [link 👈](https://mongoose-lakes-blog.herokuapp.com/lakes/login)
 
 <div align="center">
@@ -32,7 +31,6 @@ Lakes and mountains have always been inpiring me and I hope, you will find some 
 ### Trello planning and preparation [link 👈](https://trello.com/b/r6RMp0md/project-2)
 
 
-
 <h2>:fire: Getting Started</h2>
 <div id="header" align="center">
 </div>
@@ -44,7 +42,6 @@ Lakes and mountains have always been inpiring me and I hope, you will find some 
 <span id="header" align="left">
  <img src="https://i.imgur.com/cxZazja.png" width="500" height="600">
 </span>
-
 
 
 <h3>:calling: Instructions</h3>
